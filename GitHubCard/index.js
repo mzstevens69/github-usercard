@@ -25,7 +25,7 @@
           user, and adding that card to the DOM.
 */
 
-followersArray = ['https://github.com/AndrewMaddocks','https://github.com/ology','https://github.com/reeceap124','https://github.com/GeorgeRaymond98','https://github.com/ShandaWoods'];
+// followersArray = ['https://github.com/AndrewMaddocks','https://github.com/ology','https://github.com/reeceap124','https://github.com/GeorgeRaymond98','https://github.com/ShandaWoods'];
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -46,12 +46,12 @@ followersArray = ['https://github.com/AndrewMaddocks','https://github.com/ology'
 */
 
 
-////set up followers///iterate through forEach
+////set up followers///
 
 axios.get("https://api.github.com/users/mzstevens69/followers")
   .then(response => {
     response.data.forEach(item => {
-    axios.get(item.url)
+    axios.get(item.url)//gets followers and updates
     .then(response => {
       // console.log(response);
       const cardNew = cardMaker(response);
@@ -60,7 +60,7 @@ axios.get("https://api.github.com/users/mzstevens69/followers")
   })
 })
   .catch(error => {
-    console.log("data not returned", error);
+    console.log("You got nothing---TRY AGAIN", error);
   });
 //STEP ONE///////////get data for me
 
@@ -70,7 +70,7 @@ axios.get("https://api.github.com/users/mzstevens69")
     cards.appendChild(myCard);
   })
   .catch(error => {
-    console.log("data not returned", error);
+    console.log("You got nothing---TRY AGAIN", error);
   });
 
 //STEP FOUR/////
